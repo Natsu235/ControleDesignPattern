@@ -7,6 +7,7 @@ import com.tactfactory.designpattern.controle.entities.packing.Box;
 public abstract class Burger implements Item {
 	private String name;
 	private float price;
+	private String size;
 	private Packing packing = new Box();
 
 	@Override

@@ -48,15 +48,12 @@ public abstract class Drink implements Item{
 	public void setSize(String size) {
 		switch (size) {
 		case "petit":
-			setSize(size) ; 
 			setPrice((float) 1.80);
 			break;	
 		case "moyen":
-			setSize(size) ; 
 			setPrice((float) 2.50);
 			break;	
 		case "grand":
-			setSize(size) ; 
 			break;
 		default:
 			System.err.println("Error Drink404 : size");

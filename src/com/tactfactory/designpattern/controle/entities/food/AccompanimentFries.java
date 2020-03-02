@@ -9,16 +9,13 @@ public class AccompanimentFries extends Accompaniment {
 		setName("Fries");
 		
 		switch (size) {
-		case "petit":
-			setSize(size) ; 
+		case "petit": 
 			setPrice((float) 1.80);
 			break;	
 		case "moyen":
-			setSize(size) ; 
 			setPrice((float) 2.50);
 			break;	
 		case "grand":
-			setSize(size) ; 
 			setPrice((float) 3.10);
 			break;
 

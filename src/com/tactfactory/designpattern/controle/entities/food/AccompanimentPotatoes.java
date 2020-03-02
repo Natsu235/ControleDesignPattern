@@ -10,15 +10,12 @@ public class AccompanimentPotatoes extends Accompaniment {
 		
 		switch (size) {
 		case "petit":
-			setSize(size) ; 
 			setPrice((float) 1.80);
 			break;	
-		case "moyen":
-			setSize(size) ; 
+		case "moyen": 
 			setPrice((float) 2.50);
 			break;	
 		case "grand":
-			setSize(size) ; 
 			setPrice((float) 3.10);
 			break;
 

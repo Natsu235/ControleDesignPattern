@@ -64,7 +64,9 @@ public class DetailsSelection extends JFrame {
 
   public void setHome(Home home) {
     this.home = home;
-    meal = home.getMeal();
+    //meal = home.getMeal();
     home.setVisible(false);
+    Meal.getMeal().showItems();
+	commandDetails.setText(Meal.getMeal().toString());
   }
 }
