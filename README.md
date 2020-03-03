@@ -1,4 +1,4 @@
-# Contrôle Design Pattern (Macdo)
+# Contrôle Java Design Pattern (Macdo)
 
 ## Introduction
 Application Java permettant de saisir des commandes Macdo.
@@ -6,5 +6,3 @@ Application Java permettant de saisir des commandes Macdo.
 ## Prérequis
 * Eclipse IDE
 * Java Devlopment Kit
-
-# Test Emilien

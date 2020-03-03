@@ -16,7 +16,7 @@ public class DetailsSelection extends JFrame {
   private Home home;
   private Meal meal;
 
-  private JButton validate = new JButton("Retour");
+  private JButton back = new JButton("Retour");
   private JTextField commandDetails = new JTextField();
   private JTextField price = new JTextField();
 
@@ -36,7 +36,7 @@ public class DetailsSelection extends JFrame {
     container.setLayout(new GridLayout(3, 1));
     container.add(commandDetails);
     container.add(price);
-    container.add(validate);
+    container.add(back);
     this.setContentPane(container);
   }
 
