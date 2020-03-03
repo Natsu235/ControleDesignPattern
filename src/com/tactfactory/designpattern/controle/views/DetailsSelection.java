@@ -51,7 +51,7 @@ public class DetailsSelection extends JFrame {
 //      }
 //    });
 
-    validate.addActionListener(new ActionListener() {
+    back.addActionListener(new ActionListener() {
 
       @Override
       public void actionPerformed(ActionEvent e) {

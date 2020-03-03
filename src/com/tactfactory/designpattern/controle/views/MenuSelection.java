@@ -15,8 +15,10 @@ public class MenuSelection extends JFrame {
   private Home home;
   private Meal meal;
 
+  private JButton happyMeal = new JButton("HappyMeal");
   private JButton bestOf = new JButton("BestOf");
   private JButton maxiBestOf = new JButton("MaxiBestOf");
+  private JButton maxiBestOf = new JButton("McRoyale");
 
   private JButton burger1 = new JButton("Burger1");
   private JButton burger2 = new JButton("Burger2");
@@ -28,6 +30,7 @@ public class MenuSelection extends JFrame {
   private JButton potatoes = new JButton("Potatoes");
 
   private JButton validate = new JButton("Valider");
+  private JButton cancel = new JButton("Annuler");
 
   public MenuSelection() {
     this.setTitle("Menu");
@@ -69,29 +72,35 @@ public class MenuSelection extends JFrame {
     container.add(containerAccompaniment);
 
     container.add(validate);
+    container.add(cancel);
     this.setContentPane(container);
   }
 
   private void bindActions() {
 
-    // Actions code here
-//    JButton.addActionListener(new ActionListener() {
-//
-//      @Override
-//      public void actionPerformed(ActionEvent e) {
-//        // Do something
-//      }
-//    });
-
+    // On "Valider" Button Clicked...
     validate.addActionListener(new ActionListener() {
 
       @Override
       public void actionPerformed(ActionEvent e) {
+        // Valider la commande
         home.setMeal(meal);
         home.setVisible(true);
         MenuSelection.this.dispose();
       }
     });
+
+    // On "Annuler" Button Clicked...
+    validate.addActionListener(new ActionListener() {
+
+      @Override
+      public void actionPerformed(ActionEvent e) {
+        // Annuler la commande
+        home.setVisible(true);
+        MenuSelection.this.dispose();
+      }
+    });
+
   }
 
   public void setHome(Home home) {
@@ -99,4 +108,5 @@ public class MenuSelection extends JFrame {
     meal = home.getMeal();
     home.setVisible(false);
   }
+
 }
