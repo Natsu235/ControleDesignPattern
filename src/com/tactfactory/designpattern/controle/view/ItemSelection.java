@@ -22,6 +22,7 @@ import com.tactfactory.designpattern.controle.entity.food.DrinkFanta;
 public class ItemSelection extends JFrame {
 
   private Home home;
+  private final MealBuilder builder = new MealBuilder();
 
   private JButton burger1 = new JButton("Big Mac");
   private JButton burger2 = new JButton("Triple Cheese");
@@ -45,9 +46,8 @@ public class ItemSelection extends JFrame {
   private JButton potatoesMedium = new JButton("Moyennes Potatoes");
   private JButton potatoesBig = new JButton("Grandes Potatoes");
 
-  private JButton validate = new JButton("Valider");
-
-  final MealBuilder mealBuilder = new MealBuilder();
+  private JButton confirm = new JButton("Valider");
+  private JButton back = new JButton("Retour");
 
   public ItemSelection() {
     this.setTitle("Items");
@@ -68,6 +68,8 @@ public class ItemSelection extends JFrame {
     containerBurger.setLayout(new GridLayout(2, 4));
     containerBurger.add(burger1);
     containerBurger.add(burger2);
+    containerBurger.add(burger3);
+    containerBurger.add(burger4);
     container.add(containerBurger);
 
     JPanel containerDrink = new JPanel();
@@ -90,7 +92,9 @@ public class ItemSelection extends JFrame {
     containerAccompaniment.add(potatoesBig);
     container.add(containerAccompaniment);
 
-    container.add(validate);
+    container.add(confirm);
+    container.add(back);
+
     this.setContentPane(container);
   }
 
@@ -102,14 +106,14 @@ public class ItemSelection extends JFrame {
     burger1.addActionListener(new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
-          mealBuilder.addItem(new BurgerBigMac());
+          builder.addItem(new BurgerBigMac());
         }
       });
 
     burger2.addActionListener(new ActionListener() {
       @Override
       public void actionPerformed(ActionEvent e) {
-          mealBuilder.addItem(new BurgerTripleCheese());
+          builder.addItem(new BurgerTripleCheese());
           System.out.println("Miam!");
         }
       });
@@ -117,14 +121,14 @@ public class ItemSelection extends JFrame {
     burger3.addActionListener(new ActionListener() {
       @Override
       public void actionPerformed(ActionEvent e) {
-          mealBuilder.addItem(new BurgerTripleCheese());
+          builder.addItem(new BurgerCBO());
         }
       });
 
     burger4.addActionListener(new ActionListener() {
       @Override
       public void actionPerformed(ActionEvent e) {
-          mealBuilder.addItem(new BurgerTripleCheese());
+          builder.addItem(new BurgerBigTasty());
         }
       });
 
@@ -132,42 +136,42 @@ public class ItemSelection extends JFrame {
     drink1Small.addActionListener(new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
-          mealBuilder.addItem(new DrinkCoca("Petit"));
+          builder.addItem(new DrinkCoca("Petit"));
         }
       });
 
     drink1Medium.addActionListener(new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
-          mealBuilder.addItem(new DrinkCoca("Moyen"));
+          builder.addItem(new DrinkCoca("Moyen"));
         }
       });
 
     drink1Big.addActionListener(new ActionListener() {
       @Override
         public void actionPerformed(ActionEvent e) {
-          mealBuilder.addItem(new DrinkCoca("Grand"));
+          builder.addItem(new DrinkCoca("Grand"));
         }
       });
 
     drink2Small.addActionListener(new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
-          mealBuilder.addItem(new DrinkFanta("Petit"));
+          builder.addItem(new DrinkFanta("Petit"));
         }
       });
 
     drink2Medium.addActionListener(new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
-          mealBuilder.addItem(new DrinkFanta("Moyen"));
+          builder.addItem(new DrinkFanta("Moyen"));
         }
       });
 
     drink2Big.addActionListener(new ActionListener() {
       @Override
         public void actionPerformed(ActionEvent e) {
-          mealBuilder.addItem(new DrinkFanta("Grand"));
+          builder.addItem(new DrinkFanta("Grand"));
         }
       });
 
@@ -175,46 +179,54 @@ public class ItemSelection extends JFrame {
     friesSmall.addActionListener(new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
-          mealBuilder.addItem(new AccompanimentFries("Petit"));
+          builder.addItem(new AccompanimentFries("Petit"));
         }
       });
 
     friesMedium.addActionListener(new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
-          mealBuilder.addItem(new AccompanimentFries("Moyen"));
+          builder.addItem(new AccompanimentFries("Moyen"));
         }
       });
 
     friesBig.addActionListener(new ActionListener() {
       @Override
         public void actionPerformed(ActionEvent e) {
-          mealBuilder.addItem(new AccompanimentFries("Grand"));
+          builder.addItem(new AccompanimentFries("Grand"));
         }
       });
 
     potatoesSmall.addActionListener(new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
-          mealBuilder.addItem(new AccompanimentPotatoes("Petit"));
+          builder.addItem(new AccompanimentPotatoes("Petit"));
         }
       });
 
     potatoesMedium.addActionListener(new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
-          mealBuilder.addItem(new AccompanimentPotatoes("Moyen"));
+          builder.addItem(new AccompanimentPotatoes("Moyen"));
         }
       });
 
     potatoesBig.addActionListener(new ActionListener() {
       @Override
         public void actionPerformed(ActionEvent e) {
-          mealBuilder.addItem(new AccompanimentPotatoes("Grand"));
+          builder.addItem(new AccompanimentPotatoes("Grand"));
         }
       });
 
-    validate.addActionListener(new ActionListener() {
+    confirm.addActionListener(new ActionListener() {
+      @Override
+      public void actionPerformed(ActionEvent e) {
+        home.setVisible(true);
+        ItemSelection.this.dispose();
+      }
+    });
+
+    back.addActionListener(new ActionListener() {
       @Override
       public void actionPerformed(ActionEvent e) {
         home.setVisible(true);

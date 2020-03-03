@@ -44,17 +44,16 @@ public class MenuSelection extends JFrame {
     private JButton gameBoard = new JButton("Fries");
     private JButton gameRacing = new JButton("Potatoes");
 
-    private JButton submit = new JButton("Valider");
-    private JButton cancel = new JButton("Annuler");
+    private JButton confirm = new JButton("Valider");
     private JButton reset = new JButton("Réinitialiser");
+    private JButton back = new JButton("Retour");
 
     public MenuSelection() {
         this.setTitle("Menu");
         this.setSize(400, 200);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        submit.setBackground(Color.decode("#c6ffd2"));
-        cancel.setBackground(Color.decode("#fee0c2"));
+        confirm.setBackground(Color.decode("#c6ffd2"));
         reset.setBackground(Color.decode("#ff9d9d"));
 
         bindActions();
@@ -95,9 +94,9 @@ public class MenuSelection extends JFrame {
         containerAccompaniment.add(potatoes);
         container.add(containerAccompaniment);
 
-        container.add(submit);
-        container.add(cancel);
+        container.add(confirm);
         container.add(reset);
+        container.add(back);
 
         this.setContentPane(container);
     }
@@ -278,6 +277,20 @@ public class MenuSelection extends JFrame {
             }
         });
 
+        // On "Valider" Button Clicked...
+        confirm.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                MenuFactory mf = new MenuFactory();
+                MealBuilder builder = new MealBuilder();
+
+                builder.addItem(mf.create(menu, burger1, burger2, accompaniment, drink, game));
+
+                home.setVisible(true);
+                MenuSelection.this.dispose();
+            }
+        });
+
         // On "Réinitialiser" Button Clicked...
         reset.addActionListener(new ActionListener() {
             @Override
@@ -294,24 +307,10 @@ public class MenuSelection extends JFrame {
             }
         });
 
-        // On "Annuler" Button Clicked...
-        cancel.addActionListener(new ActionListener() {
+        // On "Retour" Button Clicked...
+        back.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                home.setVisible(true);
-                MenuSelection.this.dispose();
-            }
-        });
-
-        // On "Valider" Button Clicked...
-        submit.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                MenuFactory mf = new MenuFactory();
-                MealBuilder builder = new MealBuilder();
-
-                builder.addItem(mf.create(menu, burger1, burger2, accompaniment, drink, game));
-
                 home.setVisible(true);
                 MenuSelection.this.dispose();
             }
@@ -385,30 +384,30 @@ public class MenuSelection extends JFrame {
             switch (menu) {
                 case "Happy Meal":
                     if (burger1 != null && drink != null && accompaniment != null && game != null)
-                        submit.setEnabled(true);
+                        confirm.setEnabled(true);
                     else
-                        submit.setEnabled(false);
+                        confirm.setEnabled(false);
                     break;
                 case "Best Of":
                 case "Maxi Best Of":
                     if (burger1 != null && drink != null && accompaniment != null)
-                        submit.setEnabled(true);
+                        confirm.setEnabled(true);
                     else
-                        submit.setEnabled(false);
+                        confirm.setEnabled(false);
                     break;
                 case "Mc Royale":
                     if (burger1 != null && burger2 != null && drink != null && accompaniment != null)
-                        submit.setEnabled(true);
+                        confirm.setEnabled(true);
                     else
-                        submit.setEnabled(false);
+                        confirm.setEnabled(false);
                     break;
                 default:
-                    submit.setEnabled(false);
+                    confirm.setEnabled(false);
                     break;
             }
         }
         else
-            submit.setEnabled(false);
+            confirm.setEnabled(false);
     }
 
     // Display Application Main Frame

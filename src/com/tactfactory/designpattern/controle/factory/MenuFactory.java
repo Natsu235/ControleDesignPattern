@@ -18,7 +18,7 @@ public class MenuFactory {
                 return new BestOf(burger1, accompaniment, drink);
             case "Maxi Best Of":
                 return new MaxiBestOf(burger1, accompaniment, drink);
-            case "Mc Deluxe":
+            case "Mc Royale":
                 return new McRoyale(burger1, burger2, accompaniment, drink);
             default:
                 return null;
