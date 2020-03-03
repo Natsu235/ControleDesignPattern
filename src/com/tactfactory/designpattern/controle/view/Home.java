@@ -1,4 +1,4 @@
-package com.tactfactory.designpattern.controle.views;
+package com.tactfactory.designpattern.controle.view;
 
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
@@ -8,35 +8,34 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-import com.tactfactory.designpattern.controle.entities.Meal;
+import com.tactfactory.designpattern.controle.entity.Meal;
 
 public class Home extends JFrame {
 
-  private Meal meal = new Meal();
+    private Meal meal = new Meal();
 
-  public void setMeal(Meal meal) {
-    this.meal = meal;
-  }
+    public void setMeal(Meal meal) {
+        this.meal = meal;
+    }
 
-  public Meal getMeal() {
-    return meal;
-  }
+    public Meal getMeal() {
+        return meal;
+    }
 
-  private JButton menus = new JButton("Menus");
-  private JButton addItem = new JButton("Element seul");
-  private JButton validate = new JButton("Valider");
+    private JButton menus = new JButton("Menus");
+    private JButton addItem = new JButton("Element seul");
+    private JButton validate = new JButton("Valider");
 
-  public Home() {
+    public Home() {
+        this.setTitle("Home");
+        this.setSize(400, 200);
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-    this.setTitle("Home");
-    this.setSize(400, 200);
-    this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        bindActions();
+        addButtons();
 
-    bindActions();
-    addButtons();
-
-    this.setVisible(true);
-  }
+        this.setVisible(true);
+    }
 
   private void addButtons() {
     JPanel container = new JPanel();

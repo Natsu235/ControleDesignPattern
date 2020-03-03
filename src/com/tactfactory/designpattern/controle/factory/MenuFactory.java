@@ -8,21 +8,21 @@ import com.tactfactory.designpattern.controle.menu.Menu;
 
 public class MenuFactory {
 
-	// Créer le menu
-	public Menu create(String menu, String burger1, String burger2, String complement, String drink, String toy) {
+    // Créer le menu correspondant
+    public Menu create(String menu, String burger1, String burger2, String accompaniment, String drink, String game) {
 
-		switch (menu) {
-			case "Happy Meal":
-				return new HappyMeal(burger1, complement, drink, toy);
-			case "Best Of":
-				return new BestOf(burger1, complement, drink);
-			case "Maxi Best Of":
-				return new MaxiBestOf(burger1, complement, drink);
-			case "Mc Deluxe":
-				return new McRoyale(burger1, burger2, complement, drink);
-			default:
-				return null;
-		}
-	}
+        switch (menu) {
+            case "Happy Meal":
+                return new HappyMeal(burger1, accompaniment, drink, game);
+            case "Best Of":
+                return new BestOf(burger1, accompaniment, drink);
+            case "Maxi Best Of":
+                return new MaxiBestOf(burger1, accompaniment, drink);
+            case "Mc Deluxe":
+                return new McRoyale(burger1, burger2, accompaniment, drink);
+            default:
+                return null;
+        }
+    }
 
 }
