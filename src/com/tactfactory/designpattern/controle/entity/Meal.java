@@ -55,17 +55,17 @@ public class Meal {
 
     public void showItems() {
         for (Item item : items) {
-        	if (item != null)
-        	    System.out.println("Item: " + item.name() + ", Packing: " + item.packing().pack() + ", Price: " + item.price());
+            if (item != null)
+                System.out.println("Item: " + item.name() + ", Packing: " + item.packing().pack() + ", Price: " + item.price());
         }
     }
 
     public String showDetails() {
-    	String output = "" ;
+        String output = "" ;
 
         for (Item item : items) {
             if (item != null)
-      		    output += "Item: " + item.name() + ", Packing: " + item.packing().pack() +", Price: " + item.price() + "\n";
+                  output += "Item: " + item.name() + ", Packing: " + item.packing().pack() +", Price: " + item.price() + "\n";
         }
 
         return output;
@@ -76,64 +76,64 @@ public class Meal {
         String output = "";
 
         if (items.isEmpty()) {
-        	output = "La commande ne contient aucun élément.\n";
+            output = "La commande ne contient aucun élément.\n";
             return output;
         }
 
         for (Item item : items) {
-        	// Cas d'un menu...
-        	if (item instanceof Menu) {
-        		output += "1 Menu " + item.name() + "\n\n";
-        		output += "Composition du menu: \n";
-        		output += ((Menu) item) + "\n";
-        	}
-        	// Cas d'un élément seul...
-        	else {
-        		output += "- 1 ";
-	            if (item instanceof Drink) {
-	                if (item instanceof DrinkCoca) {
-	                    if (item.price() == 1.80F)
-	                    	output += "Petit ";
-	                    else if (item.price() == 2.50F)
-	                    	output += "Moyen ";
-	                    else
-	                    	output += "Grand ";
-	                }
-	                if (item instanceof DrinkFanta) {
-	                    if (item.price() == 1.80F)
-	                    	output += "Petit ";
-	                    else if(item.price() == 2.50F)
-	                    	output += "Moyen ";
-	                    else
-	                    	output += "Grand ";
-	                }
-	            }
-	            if (item instanceof Accompaniment) {
-	                if (item instanceof AccompanimentFries) {
-	                    if (item.price() == 1.80F)
-	                    	output += "Petites ";
-	                    else if (item.price() == 2.50F)
-	                    	output += "Moyennes ";
-	                    else
-	                    	output += "Grandes ";
-	                }
-	                if (item instanceof AccompanimentPotatoes) {
-	                    if (item.price() == 1.80F)
-	                    	output += "Petites ";
-	                    else if (item.price() == 2.50F)
-	                    	output += "Moyennes ";
-	                    else
-	                    	output += "Grandes ";
-	                }
-	            }
+            // Cas d'un menu...
+            if (item instanceof Menu) {
+                output += "1 Menu " + item.name() + "\n\n";
+                output += "Composition du menu: \n";
+                output += ((Menu) item) + "\n";
+            }
+            // Cas d'un élément seul...
+            else {
+                output += "- 1 ";
+                if (item instanceof Drink) {
+                    if (item instanceof DrinkCoca) {
+                        if (item.price() == 1.80F)
+                            output += "Petit ";
+                        else if (item.price() == 2.50F)
+                            output += "Moyen ";
+                        else
+                            output += "Grand ";
+                    }
+                    if (item instanceof DrinkFanta) {
+                        if (item.price() == 1.80F)
+                            output += "Petit ";
+                        else if(item.price() == 2.50F)
+                            output += "Moyen ";
+                        else
+                            output += "Grand ";
+                    }
+                }
+                if (item instanceof Accompaniment) {
+                    if (item instanceof AccompanimentFries) {
+                        if (item.price() == 1.80F)
+                            output += "Petites ";
+                        else if (item.price() == 2.50F)
+                            output += "Moyennes ";
+                        else
+                            output += "Grandes ";
+                    }
+                    if (item instanceof AccompanimentPotatoes) {
+                        if (item.price() == 1.80F)
+                            output += "Petites ";
+                        else if (item.price() == 2.50F)
+                            output += "Moyennes ";
+                        else
+                            output += "Grandes ";
+                    }
+                }
 
-	            output += item.name() + " au prix (unitaire) de " + item.price() + " €\n";
-        	}
+                output += item.name() + " au prix (unitaire) de " + item.price() + " €\n";
+            }
 
         }
 
         output += "\n";
-        output += "Total à payer: " + getCost() + " €";
+        output += "Total à payer: " + Math.round(getCost() * 10) / 10.0 + " €";
         return output;
     }
 

@@ -55,6 +55,9 @@ public class MenuSelection extends JFrame {
         this.setSize(600, 400);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
+        confirm.setEnabled(false);
+        CBO.setEnabled(false);
+        bigTasty.setEnabled(false);
         confirm.setBackground(Color.decode("#c6ffd2"));
         reset.setBackground(Color.decode("#ff9d9d"));
 
@@ -120,6 +123,7 @@ public class MenuSelection extends JFrame {
                 game = Math.random() < 0.5 ? "Jeu de société" : "Jeu de course";
                 enableButtons(false);
                 enableButtons(true);
+                enableBurgers2(false);
                 checkValidity();
             }
         });
@@ -137,6 +141,7 @@ public class MenuSelection extends JFrame {
                 game = null;
                 enableButtons(false);
                 enableButtons(true);
+                enableBurgers2(false);
                 checkValidity();
             }
         });
@@ -154,6 +159,7 @@ public class MenuSelection extends JFrame {
                 game = null;
                 enableButtons(false);
                 enableButtons(true);
+                enableBurgers2(false);
                 checkValidity();
             }
         });
@@ -302,6 +308,7 @@ public class MenuSelection extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 enableButtons(true);
+                enableBurgers2(false);
                 resetBurgers1Color();
                 resetBurgers2Color();
                 resetAccompanimentsColor();
@@ -335,13 +342,13 @@ public class MenuSelection extends JFrame {
 
     // Output Variables
     public void showDebug() {
-    	System.out.println(menu);
-    	System.out.println(burger1);
-    	System.out.println(burger2);
-    	System.out.println(accompaniment);
-    	System.out.println(drink);
-    	System.out.println(game);
-    	System.out.println();
+        System.out.println(menu);
+        System.out.println(burger1);
+        System.out.println(burger2);
+        System.out.println(accompaniment);
+        System.out.println(drink);
+        System.out.println(game);
+        System.out.println();
     }
 
     public void resetMenusColor() {
@@ -396,9 +403,15 @@ public class MenuSelection extends JFrame {
         }
     }
 
+    // Change Burgers2 State
+    public void enableBurgers2(boolean state) {
+        CBO.setEnabled(state);
+        bigTasty.setEnabled(state);
+    }
+
     // Check "Valider" Button State
     public void checkValidity() {
-    	showDebug();
+        showDebug();
         if (menu != null) {
             switch (menu) {
                 case "Happy Meal":

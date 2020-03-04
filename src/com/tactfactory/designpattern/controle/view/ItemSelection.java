@@ -55,6 +55,7 @@ public class ItemSelection extends JFrame {
     this.setSize(600, 400);
     this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
+    confirm.setEnabled(false);
     confirm.setBackground(Color.decode("#c6ffd2"));
 
     bindActions();
@@ -110,6 +111,7 @@ public class ItemSelection extends JFrame {
         @Override
         public void actionPerformed(ActionEvent e) {
           builder.addItem(new BurgerBigMac());
+          confirm.setEnabled(true);
         }
       });
 
@@ -117,6 +119,7 @@ public class ItemSelection extends JFrame {
       @Override
       public void actionPerformed(ActionEvent e) {
           builder.addItem(new BurgerTripleCheese());
+          confirm.setEnabled(true);
           System.out.println("Miam!");
         }
       });
@@ -125,6 +128,7 @@ public class ItemSelection extends JFrame {
       @Override
       public void actionPerformed(ActionEvent e) {
           builder.addItem(new BurgerCBO());
+          confirm.setEnabled(true);
         }
       });
 
@@ -132,6 +136,7 @@ public class ItemSelection extends JFrame {
       @Override
       public void actionPerformed(ActionEvent e) {
           builder.addItem(new BurgerBigTasty());
+          confirm.setEnabled(true);
         }
       });
 
@@ -140,6 +145,7 @@ public class ItemSelection extends JFrame {
         @Override
         public void actionPerformed(ActionEvent e) {
           builder.addItem(new DrinkCoca("Petit"));
+          confirm.setEnabled(true);
         }
       });
 
@@ -147,6 +153,7 @@ public class ItemSelection extends JFrame {
         @Override
         public void actionPerformed(ActionEvent e) {
           builder.addItem(new DrinkCoca("Moyen"));
+          confirm.setEnabled(true);
         }
       });
 
@@ -154,6 +161,7 @@ public class ItemSelection extends JFrame {
       @Override
         public void actionPerformed(ActionEvent e) {
           builder.addItem(new DrinkCoca("Grand"));
+          confirm.setEnabled(true);
         }
       });
 
@@ -161,6 +169,7 @@ public class ItemSelection extends JFrame {
         @Override
         public void actionPerformed(ActionEvent e) {
           builder.addItem(new DrinkFanta("Petit"));
+          confirm.setEnabled(true);
         }
       });
 
@@ -168,6 +177,7 @@ public class ItemSelection extends JFrame {
         @Override
         public void actionPerformed(ActionEvent e) {
           builder.addItem(new DrinkFanta("Moyen"));
+          confirm.setEnabled(true);
         }
       });
 
@@ -175,6 +185,7 @@ public class ItemSelection extends JFrame {
       @Override
         public void actionPerformed(ActionEvent e) {
           builder.addItem(new DrinkFanta("Grand"));
+          confirm.setEnabled(true);
         }
       });
 
@@ -183,6 +194,7 @@ public class ItemSelection extends JFrame {
         @Override
         public void actionPerformed(ActionEvent e) {
           builder.addItem(new AccompanimentFries("Petit"));
+          confirm.setEnabled(true);
         }
       });
 
@@ -190,6 +202,7 @@ public class ItemSelection extends JFrame {
         @Override
         public void actionPerformed(ActionEvent e) {
           builder.addItem(new AccompanimentFries("Moyen"));
+          confirm.setEnabled(true);
         }
       });
 
@@ -197,6 +210,7 @@ public class ItemSelection extends JFrame {
       @Override
         public void actionPerformed(ActionEvent e) {
           builder.addItem(new AccompanimentFries("Grand"));
+          confirm.setEnabled(true);
         }
       });
 
@@ -204,6 +218,7 @@ public class ItemSelection extends JFrame {
         @Override
         public void actionPerformed(ActionEvent e) {
           builder.addItem(new AccompanimentPotatoes("Petit"));
+          confirm.setEnabled(true);
         }
       });
 
@@ -211,6 +226,7 @@ public class ItemSelection extends JFrame {
         @Override
         public void actionPerformed(ActionEvent e) {
           builder.addItem(new AccompanimentPotatoes("Moyen"));
+          confirm.setEnabled(true);
         }
       });
 
@@ -218,6 +234,7 @@ public class ItemSelection extends JFrame {
       @Override
         public void actionPerformed(ActionEvent e) {
           builder.addItem(new AccompanimentPotatoes("Grand"));
+          confirm.setEnabled(true);
         }
       });
 

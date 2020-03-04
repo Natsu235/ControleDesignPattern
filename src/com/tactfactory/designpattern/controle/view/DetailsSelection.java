@@ -45,7 +45,7 @@ public class DetailsSelection extends JFrame {
         back.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-            	Meal.newMeal();
+                Meal.newMeal();
                 home.setVisible(true);
                 DetailsSelection.this.dispose();
             }
