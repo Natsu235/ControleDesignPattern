@@ -10,7 +10,6 @@ public class MaxiBestOf extends Menu {
         this.setPrice(9.5F);
 
         this.setBurger1(burger);
-        this.setBurger2(null);
         this.setAccompaniment(accompaniment);
         this.setDrink(drink);
     }

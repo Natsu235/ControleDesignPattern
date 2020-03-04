@@ -10,7 +10,6 @@ public class BestOf extends Menu {
         this.setPrice(8.9F);
 
         this.setBurger1(burger);
-        this.setBurger2(null);
         this.setAccompaniment(accompaniment);
         this.setDrink(drink);
     }

@@ -1,5 +1,6 @@
 package com.tactfactory.designpattern.controle.view;
 
+import java.awt.Color;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -30,7 +31,7 @@ public class ItemSelection extends JFrame {
   private JButton burger3 = new JButton("CBO");
   private JButton burger4 = new JButton("Big Tasty");
 
-  private JButton drink1Small = new JButton("Petit coca");
+  private JButton drink1Small = new JButton("Petit Coca");
   private JButton drink1Medium = new JButton("Moyen Coca");
   private JButton drink1Big = new JButton("Grand Coca");
 
@@ -38,9 +39,9 @@ public class ItemSelection extends JFrame {
   private JButton drink2Medium = new JButton("Moyen Fanta");
   private JButton drink2Big = new JButton("Grand Fanta");
 
-  private JButton friesSmall = new JButton("Petite Frite");
-  private JButton friesMedium = new JButton("Moyenne Frite");
-  private JButton friesBig = new JButton("Grande Frite");
+  private JButton friesSmall = new JButton("Petites Frites");
+  private JButton friesMedium = new JButton("Moyennes Frites");
+  private JButton friesBig = new JButton("Grandes Frites");
 
   private JButton potatoesSmall = new JButton("Petites Potatoes");
   private JButton potatoesMedium = new JButton("Moyennes Potatoes");
@@ -51,8 +52,10 @@ public class ItemSelection extends JFrame {
 
   public ItemSelection() {
     this.setTitle("Items");
-    this.setSize(400, 200);
+    this.setSize(600, 400);
     this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+    confirm.setBackground(Color.decode("#c6ffd2"));
 
     bindActions();
     addButtons();

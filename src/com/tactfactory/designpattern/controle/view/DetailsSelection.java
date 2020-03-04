@@ -7,22 +7,21 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
+import javax.swing.JTextArea;
 
 import com.tactfactory.designpattern.controle.entity.Meal;
 
 public class DetailsSelection extends JFrame {
 
     private Home home;
-    private Meal meal;
 
+    private JTextArea commandDetails = new JTextArea();
+    private JTextArea price = new JTextArea();
     private JButton back = new JButton("Retour");
-    private JTextField commandDetails = new JTextField();
-    private JTextField price = new JTextField();
 
     public DetailsSelection() {
         this.setTitle("Details");
-        this.setSize(400, 200);
+        this.setSize(620, 380);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     
         bindActions();
@@ -33,9 +32,9 @@ public class DetailsSelection extends JFrame {
 
     private void addButtons() {
         JPanel container = new JPanel();
-        container.setLayout(new GridLayout(3, 1));
+        container.setLayout(new GridLayout(2, 1));
         container.add(commandDetails);
-        container.add(price);
+        //container.add(price);
         container.add(back);
         this.setContentPane(container);
     }
@@ -46,6 +45,7 @@ public class DetailsSelection extends JFrame {
         back.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+            	Meal.newMeal();
                 home.setVisible(true);
                 DetailsSelection.this.dispose();
             }
@@ -54,7 +54,6 @@ public class DetailsSelection extends JFrame {
 
     public void setHome(Home home) {
         this.home = home;
-        //meal = home.getMeal();
         home.setVisible(false);
         Meal.getMeal().showItems();
         commandDetails.setText(Meal.getMeal().toString());

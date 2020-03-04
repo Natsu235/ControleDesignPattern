@@ -5,6 +5,7 @@ import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -16,7 +17,6 @@ import com.tactfactory.designpattern.controle.factory.MenuFactory;
 public class MenuSelection extends JFrame {
 
     private Home home;
-    private Meal meal;
 
     private static String menu;
     private static String burger1;
@@ -24,6 +24,8 @@ public class MenuSelection extends JFrame {
     private static String accompaniment;
     private static String drink;
     private static String game;
+
+    //private ImageIcon bigMacIcon = new ImageIcon(this.getClass().getResource("/icons/bigMac.png"));
 
     private JButton happyMeal = new JButton("Happy Meal");
     private JButton bestOf = new JButton("Best Of");
@@ -38,11 +40,11 @@ public class MenuSelection extends JFrame {
     private JButton coca = new JButton("Coca Cola");
     private JButton fanta = new JButton("Fanta");
 
-    private JButton fries = new JButton("Fries");
+    private JButton fries = new JButton("Frites");
     private JButton potatoes = new JButton("Potatoes");
 
-    private JButton gameBoard = new JButton("Fries");
-    private JButton gameRacing = new JButton("Potatoes");
+    private JButton gameBoard = new JButton("Jeu de société");
+    private JButton gameRacing = new JButton("Jeu de course");
 
     private JButton confirm = new JButton("Valider");
     private JButton reset = new JButton("Réinitialiser");
@@ -50,11 +52,14 @@ public class MenuSelection extends JFrame {
 
     public MenuSelection() {
         this.setTitle("Menu");
-        this.setSize(400, 200);
+        this.setSize(600, 400);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         confirm.setBackground(Color.decode("#c6ffd2"));
         reset.setBackground(Color.decode("#ff9d9d"));
+
+        //bigMac.setToolTipText("Big Mac");
+        //bigMac.setIcon(bigMacIcon);
 
         bindActions();
         addButtons();
@@ -67,7 +72,7 @@ public class MenuSelection extends JFrame {
         container.setLayout(new GridLayout(3, 1));
 
         JPanel containerType = new JPanel();
-        containerType.setLayout(new GridLayout(1, 2));
+        containerType.setLayout(new GridLayout(2, 4));
         containerType.add(happyMeal);
         containerType.add(bestOf);
         containerType.add(maxiBestOf);
@@ -112,6 +117,7 @@ public class MenuSelection extends JFrame {
                 happyMeal.setBackground(Color.decode("#c4ecfd"));
                 menu = "Happy Meal";
                 burger2 = null;
+                game = Math.random() < 0.5 ? "Jeu de société" : "Jeu de course";
                 enableButtons(false);
                 enableButtons(true);
                 checkValidity();
@@ -193,7 +199,7 @@ public class MenuSelection extends JFrame {
         CBO.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                resetBurgers1Color();
+                resetBurgers2Color();
                 CBO.setBackground(Color.decode("#c4ecfd"));
                 burger2 = "CBO";
                 checkValidity();
@@ -205,7 +211,7 @@ public class MenuSelection extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 resetBurgers2Color();
-                bigTasty.setBackground(Color.decode("#B0E0E6"));
+                bigTasty.setBackground(Color.decode("#c4ecfd"));
                 burger2 = "Big Tasty";
                 checkValidity();
             }
@@ -233,13 +239,13 @@ public class MenuSelection extends JFrame {
             }
         });
 
-        // On "Fries" Button Clicked...
+        // On "Frites" Button Clicked...
         fries.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 resetAccompanimentsColor();
                 fries.setBackground(Color.decode("#c4ecfd"));
-                accompaniment = "Fries";
+                accompaniment = "Frites";
                 checkValidity();
             }
         });
@@ -295,7 +301,7 @@ public class MenuSelection extends JFrame {
         reset.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                enableButtons(false);
+                enableButtons(true);
                 resetBurgers1Color();
                 resetBurgers2Color();
                 resetAccompanimentsColor();
@@ -317,6 +323,7 @@ public class MenuSelection extends JFrame {
         });
     }
 
+    // Reset Variables
     public void resetMenu() {
         menu = null;
         burger1 = null;
@@ -324,6 +331,17 @@ public class MenuSelection extends JFrame {
         accompaniment = null;
         drink = null;
         game = null;
+    }
+
+    // Output Variables
+    public void showDebug() {
+    	System.out.println(menu);
+    	System.out.println(burger1);
+    	System.out.println(burger2);
+    	System.out.println(accompaniment);
+    	System.out.println(drink);
+    	System.out.println(game);
+    	System.out.println();
     }
 
     public void resetMenusColor() {
@@ -380,6 +398,7 @@ public class MenuSelection extends JFrame {
 
     // Check "Valider" Button State
     public void checkValidity() {
+    	showDebug();
         if (menu != null) {
             switch (menu) {
                 case "Happy Meal":

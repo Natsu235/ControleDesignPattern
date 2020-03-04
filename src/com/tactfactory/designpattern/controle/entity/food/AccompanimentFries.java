@@ -7,7 +7,7 @@ public class AccompanimentFries extends Accompaniment {
     public AccompanimentFries() {}
 
     public AccompanimentFries(String size) {
-        this.setName("Fries");
+        this.setName("Frites");
 
         switch (size) {
             case "Petit":

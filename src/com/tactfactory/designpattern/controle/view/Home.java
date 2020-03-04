@@ -1,5 +1,6 @@
 package com.tactfactory.designpattern.controle.view;
 
+import java.awt.Color;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -22,14 +23,16 @@ public class Home extends JFrame {
         return meal;
     }
 
-    private JButton menus = new JButton("Menus");
-    private JButton addItem = new JButton("Element seul");
-    private JButton validate = new JButton("Valider");
+    private JButton menus = new JButton("Composer un menu");
+    private JButton addItem = new JButton("Séléctionner des éléments");
+    private JButton validate = new JButton("Valider la commande");
 
     public Home() {
         this.setTitle("Home");
-        this.setSize(400, 200);
+        this.setSize(600, 400);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        validate.setBackground(Color.decode("#c6ffd2"));
 
         bindActions();
         addButtons();
